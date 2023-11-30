@@ -1,0 +1,134 @@
+AGENDA :
+1.) What is Backend ?
+2.) Module Expectations ?
+
+
+1.) What is Backend ? 
+
+	Application has 2 parts :
+		-> Client 
+		-> Server
+	
+	-> User interacts with the client. Client is medium of communication between user and server. Swiggy app on mobile is a client.
+
+	-> Client sends request to Server :
+		-> Check if the request i valid.
+		-> If valid process data and respond to the client
+	
+	-> In todays application clinet does not store data. Data is stored on server because if data is stored on client :
+		-> Consistency problems
+		-> Security issues 
+	
+	-> Client is website/app/smart devices.
+
+	-> Server owns the data.
+
+	-> Server needs multiple machines to serve a lot of requests.
+
+
+	-> #Backend : Everything w.r.t. servers is part of backend. Includes Cache/LB/Application_Servers/DBs
+	
+2.) Module Expectations ?
+	
+	-> Why Backend module ?
+		-> Major reason - To have good techically complex project scenarios 
+		-> To have hands on experience with latest tech
+		-> To be ready from day-1
+		-> To learn about best practices across industry.
+		-> Learn about common terminologies. JWT/Auth/ How to connect to microservices.
+		
+3.) Do's and Dont's
+	Do's 
+		1.) How real world dev looks like ?
+			-> How to google search ?
+			-> How to use stack overflow/ chatGPT
+			-> How to work with any framework ?
+		2.) Discuss common tools/concepts/kafka/authentication/postman
+		3.) Get a project worthy to be added in the resume.
+		4.) Working with advanced infra layers kafka/redis/mongodb
+		5.) Breif intro will be given for a topic and docs will be shared. DOCS need to be gone through.
+	Dont's 
+		1.) NO SPOON FEEDING
+		2.) No memorizing / understanding is important. Not even annotations
+
+4.) Ciricullum
+
+	1st Part - Foundational Concepts :
+		-> Git/Command Line/ Dev Project/Setup
+	2nd Part - Project :
+		- Set up the Project
+		- Basic Foundational Things like - Implementing APIs/ Connecting to DB, etc.
+		- Common Features : Aurhentication / Pagging/ Filters /Sorting / Unit Testing, etc/.
+	3rd Part - Advanced Concepts :
+		-> Kafka
+		-> Redis
+		-> Elastic Search
+		-> MongoDB
+		-> Distributed Tracing
+		-> Implementing a payment gateway
+	4th Part - Everything related to deployment
+		-> AWS Basics
+		-> CI/CD
+		-> Docker setup / Kube basics
+		
+Project we are working on is the Ecomm platform
+
+5.) What is VCS (Intro)?
+
+	-> VCS - Version Control System
+	-> If many people work on same project issues can arise. Conflicts, rework, etc.
+	-> Over time code changes evolve and it is difficult to make changes when it is evolving.
+	
+	-> If you are working on the a code and when you deploy it. There are errors. 1st step is to revert to the last stable step even before RCA and debugging. 
+		-> To rollback we need a history of the code base.
+		
+	-> Reasons for keeping history of codebases :
+		-> Revert changes
+		-> To review latest diff at each step instead of comparing from start
+		-> Track cahnges.
+	-> VCS helps with the above problems
+	
+	Types of VCS: 
+		1.) Centralized VCS - Everything is maintained on a central server. example : google docs, SVN, etc.
+			-> One central server stores the complete history/data. Everyone working on this is connected to the central server.
+			-> In Google Docs, there is 1 file. And multiple users are connected to the same file and any changes made by one user is reflected on the main file. Internet is needed for this type of VCS to make a change.
+			-> Drawbacks : The 1 server is a SPOF
+			
+		2.) Distributed VCS : 
+			-> Allows people to work independently, even if offline.
+			-> WHole history of the project is stored on everyones machine involved here.
+			-> There is no single source of truth.
+			-> A user, when he clones the repository. The user gets all the commits till that point on thier machine.
+			-> Once we have the complete history we can independently work on our machine.
+			-> Each user can make a change but the change made by the user is not reflected on the repo cloned by some other user. This is different from Google docs where when a user makes a change it is visible to every user that is connected to the inet.
+			-> Now when we push the changes it get added to the branch so when the next person clones the repo or pulls changes they will also get our chagnes.
+			-> Making changes is possible offline but to pull/push we need inet.
+			
+			-> What is a conflict ? 
+				-> 2 people have cloned the repo and both have made thier changes now when one person pushes the change git compares the files and makes the change to origin.
+				-> Now when the second person tries to make a change to the same file if there are some changes that are overlapping for example -> If when cloned both persons had line 2 as abc, now person 1 changed line 2 to ced. VCS will accept that change. Now when person 2 changes line 2 to def and tries to push it, there will be a conflict as the change is overlapping with what was pushed by another person. So this is a conflict.
+				
+			-> To fix a conflict we need to pull first and then make our changes on latest version and then push.
+			
+			-> For distributed VCS, exact replicas of each repo commit history should be present in all local systems before pushing. 
+	
+	GIT : 
+		-> It is a distributed VCS
+		-> Used across industry
+		-> Github is a wrapper over Git. 
+		-> Github provides a wrapper functions on GIt to make it easier to use.
+		
+		How Git maintains history ? 
+			-> Commit - Very Core term 
+				-> When we start the project it is V1 -> Someone pushed some change -> V2 -> Some other change -> V3 and so on. This is how code evolves.
+				-> Commit is like a save point. In word or notepad files we how we save it. Similarly in Git if we want to store/ save the cahnges we make a commit. 
+				-> Very first commit we create is a root commit.
+				-> Commit helps us to track history of the changes made too.
+				-> What all info is associated to a commit : 
+					1.) commit message
+					2.) Changes
+					3.) Commit-Id
+					4.) Timestamp
+					5.) Author
+				-> Commits are immutable. This is important to keep integrity of the history. Making it immutable also affects the structure of future chagnes.
+				-> A commit is a feature of timestamp and previous commits.
