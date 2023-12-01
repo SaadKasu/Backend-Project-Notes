@@ -1,0 +1,85 @@
+What is "vi fileName" command ? - Is it used to edit/create a new file. If file is not there it will create else it will edit.
+What is "ls -al" command ?
+
+#Homework - Complete all assignment levels apart form cherry-pick
+Read documentation prvided
+
+QUestions :
+
+When we do git log on a new branch will it show commits from the main branch ? - Yes
+
+https://learngitbranching.js.org/
+
+-> As soon as git repo is created the main branch is initialized.
+-> Main branch is the production branch. It is same as master branch
+-> Latest commit is head commit 
+
+Branches :
+	-> 2 people want to work on same project but different features.
+	-> Both people create a branch for the main.
+	-> Branch is a exact copy with all commits.
+	-> Create as many branches as you want. But only 1 main branch.
+	-> Changes made to auxilary branches need to be pushed to main branch - This is done by pull/merge request to the main branch.
+	-> Delta patch - difference between main branch and your branch.
+	
+	How to push changes to main from your branch ?
+		-> Done using command called MERGE.
+		-> MERGE is used to merge any 2 branches together.
+		-> Merge will bring all changes of 1 branch to another.
+		-> When branch we are merging to is already ahead of our branch and we try to merge our changes. Git will do a MERGE commit. No conflicts here if files changed are different in 2 branches.
+		-> When merging 2 branches the commit history will be shown in order when the commit was created not when it was merged. 
+			Example :
+			Main branch	M1->M2->M3-M4
+			Feature branch	F1->F2
+			Bug Branch        B1->B2
+			
+			When merge is done here 
+			Main M1->M2->M3->F1->B1-M2->F2->M3->B2->M4
+		
+		-> But this will give a problem during revert and this is a disadvantage of git merge.
+		-> To avaoid this problem and show the commits inorder where they were merged use something called git rebase. Rebase also helps in not creating extra merge commit.
+			Example 
+			Main branch	M1->M2->M3-M4
+			Feature branch	F1->F2
+			Bug Branch        B1->B2
+			
+			When merge is done here 
+			Main M1->M2->M3->M4->F1->F2->B1->B2
+			
+	MERGE Conflict : When 2 branches has changes in the same line of the same file it will be a conflict and auto merge will fail. 
+		-> At this point you need to resolve conlict. 
+		-> You can keep changes from neither, both or eitehr 1 branch.
+		-> After resolving conflict use merge continue
+		-> Can use merge abort to abort merge.
+			
+Git commands :
+	-> git init -> Initialize a git repo / Make current repo a git repo.
+	-> git commit -m "commit_label" -> Create a commit/save point with message where commit lable is the message. Git commit will save only to current branch.
+		Before git commit we need to tell git which files to save.
+	-> git add fileName ->  Add files to save to the commit.
+		Tracked Files : Files that have been added
+		Untracked FIles : Files not added to the commit
+	-> git log -> Shows all(yours + others) commits made on the branch if branch is synced.
+	-> git add . -> Add all files in repo to commit
+	-> git brach branchName - creates a branch with branchName and all commits till that point from the current branch not the main branch.
+	-> git branch - tells all branch in projects.
+		When you use this command the * depits the current branch you are using.
+	-> git checkout branchName - switches to the branchName.
+	-> git merge branchName - First move to the branch where you want to merge the branch to and us this command and it will merge the branchName to the branch where you are.
+	-> git checkout -b branchName - Creates a new branch and switches to the new branch in the same command. Instead of using git branch and git checkout seperately use this.
+	-> git rebase branchName- If we don't want git to create a merge commit use this command. Use this from the branch you want to merge (instead of how is git merge we run the command from branch where we want to merge to). branchName is branch where we want to rebase to. After using this command use merge command. THIS COMMAND IS NOT TO MERGE. THIS ONLY PREVENTS EXTRA MERGE COMMIT.
+	
+	
+	
+Project PRD (Project requirement details) :	https://docs.google.com/document/d/1Gn2ib5YhhpcFUiWGAUbCpg0ZPh3m_wSA-9IolGMjkIE/edit#heading=h.hteovoit9b96
+
+ Steps After getting the PRD : 
+	-> HLD design
+
+The PRD document gives reason why we are using certain functionality.
+
+PM shares the Functional requirements with Senior Engineer .
+
+Senior Engineer creates an HLD document with technologies wchich we will use and why ?
+
+Why Monolithic ? Why Microservice ? Why NoSQL ? Why SQL ?
