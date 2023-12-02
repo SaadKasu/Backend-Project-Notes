@@ -1,0 +1,34 @@
+Homework :
+	-> Go thourgh how you can create a repo and link it to a folder in local.
+	-> Try this command for the above request - git remote set-url origin git@github.com:User/UserRepo.git
+	-> read about using autowired with variable or constructor
+	-> https://start.spring.io/ - helps us create springboot 
+	-> https://docs.spring.io/spring-framework/docs/3.0.x/spring-framework-reference/html/overview.html
+	->https://spring.io/guides/gs/spring-boot/
+
+Git Remote :
+	-> Not a single source of truth but used for collaborators to share work.
+	
+Git Hub :
+	-> Use of licences - can be used for copyright purpose (don't know for sure).
+	-> To link an existing folder, first init the folder using git init and then use git repo
+	git remote set-url origin git@github.com:User/UserRepo.git
+	
+Springboot :
+	-> Spring is a framework that provides us with a set of functionalities 
+	-> You as a developer don't need to write everything from scratch. Your efforts should be focused on business logic that is the most important part of the project. This is where frameworks come into the picture.
+	-> Spring uses Java internally.
+	-> What is the difference between Spring and Springboot ?
+		-> Spring - It is a framework written in Java and its area of focus are :
+			-> Depndency management/Injection : Tell spring about a special class and spring will ensure that object will be created once and whenever you need the object of that class it will be available. We don't need to worry about creating the object everytime. We use @autowired in Spring to use Depndency Injection. use autowired with constructor or property.
+			-> Configuration management : Spring has a config file where you can specify configs for different enviornments. This is config management
+			-> IOC/Beans - IOC (Inversion of Control) is the creation of objects in specific way.
+			Beans : Special class always available for dependency Injection. Bean is an object instantiated and managed by Spring. Beans are always singelton.
+			-> Class management
+			
+			@ Annotations created on any class tells sprinf that the class is special and it should be managed by Spring. @Repositroy, @Entity, etc. that are sql specific annotations and exceptions thrown by SQL are converted to spring exceptions that is the only difference between repo annotations and normal annotations
+			
+		-> SpringBoot - Spring is used to create APIs in our prject to host these APIs we need a webserver/tomcat server + rest dependency + logging mechanism, etc. Now SpringBoot has spring framework + webserver/tomcat server + logging mechanism + rest dependency + other things that are needed, all together. 
+		
+			-> Springboot can be thought of as a framework over spring that provides functionalities mentioned above.
+			-> Springboot is mainly used to created web apps.
