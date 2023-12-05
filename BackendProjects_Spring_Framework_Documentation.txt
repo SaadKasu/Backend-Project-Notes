@@ -1,0 +1,47 @@
+Introduction to Spring Framework 
+
+-> It is a Java platform that provides comprehensive infrastructure support for developing java applications. Spring provides the infra so we can focus on the application.
+
+-> Spring allows to develop applications using Java objects and applu enterprise services on top of objects.
+
+-> Spring works with Java SE and Java EE.
+
+-> Ways to use spring :
+	-> Make java method execute in a db transactions without having to deal with transaction APIs
+	-> Make java method a remote procedure
+	-> MAke a java method a management operation without having to deal with JMX APIs
+	-> Make a java method a message handlet without having to deal with JMS APIs
+	
+-> Java applications contains on objects that depend on each other for coorect functionality of the app.
+
+- > Java provides a wealth of development functionality but it lacks the means to organize these builiding blovk into a coherent whole. We can use patterns but developers and architects need to implement these ourselves.
+
+-> Sprign Framework inversion control component - Provides a means of composing disparate/different components into fully working apps that are ready for use. Spring codifies formalized design patterns as first class objects that you can integrate with your application.
+
+-> Modules of Spring Framework :
+	-> Core Container - Contains of Core, Beans, COntext and Expression language modules.
+		-> Core and Beans - Deal with IoC and dependency injection features. The bean facotry is an implementation of the facotry desing pattern. It removes the need for sigletons allows you to decouple the configuration and specification of dependencies.
+		-> Context - Builds on the Core and Beans modules. Inherits features from beans  and adds support for event propogation, resource loading,etc. The applicationContext interface is the focal point of context module.
+		-> Expression Language module - Provides expression module for querying and manipulating an object graph at runtime.he language supports setting and getting property values, property assignment, method invocation, accessing the context of arrays, collections and indexers, logical and arithmetic operators, named variables, and retrieval of objects by name from Spring's IoC container.
+	
+	-> Data Access/Integration :
+		-> JDBC module - removes need to do JDBC coding and parsing of database vendor specific codes.
+		-> ORM module - Provides integration layer for popular Object-relational mapping APIs including JPA, JDO, Hibernate and iBatis. Using the ORM package you can use all OR mapping framewords in combination with other spring features.
+		-> OXM module - provides and abstraction layer that supports Object/XML mapping implementations.
+		-> JMS module - Java Messaging Service contains features for producing and consuming messages
+		-> Transaction  module - supports transaction management for calsses that implement special interface or POJO.
+		
+	-> Web :
+		-> Web module - provides basic web oriented integration features like file uplad, initialization of IoC container using servlet listnerts and web oriented application context. It contains web related parts of Springs remoting supoort.
+		-> Web servlet : Contains Springs MVC implementation for web applications. Springs MVC provides a clean seperation between domain model code and web form and integrates with all other features of spring framework.
+		-> Web struts : provides support classes for integrating classic struts web tier within a spring application.
+		-> Web protlet : provides MVC to be used in portlet enviornment and mirrors functionality of web servlet module.
+		
+	-> AOP :
+		-> Provides AOP(Aspect Oriented Programming ) implementaion allowing you to decouple code that implements functionality that should be sperated.
+		
+	-> Instrumentation 
+		-> Provides class instrumentation support and class loader implementations to be used in certain application servers.
+		
+	-> Test :
+		-> Supports testing of Spring components with JUnit or TestNG. Provides mock objects to test your code in isolation. 
