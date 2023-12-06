@@ -1,0 +1,56 @@
+Homework :
+	1.) Practice creating an app with spring.
+	2.) Read what protobuff is ?
+	3.) Do class design and schema design for product service before next class.
+	4.) https://aws.amazon.com/compare/the-difference-between-soap-rest/#:~:text=The%20two%20applications%20share%20data,exchange%20data%20in%20multiple%20formats
+	5.) https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design
+	6.) Define Controllers in Sring.
+
+-> Maven and Gradle are examples of buildtools. They help us do dependency management.
+-> Companies have central repo of packages. The group used while creating spring project using com.
+-> If we define the class as restcontroller we don't need to create an object of the class.
+-> Controller is entry point of the code
+-> @GetMapping("/") - > If no endpoint is given the method defined with this annotation will be executed.
+
+
+APIs :
+	-> Define how one should connect/communicate with the application.
+	-> If you want someone to communicate with your service, develop APIs for them.
+	-> When 2 applications are interacting with each other there needs to be an agreement between 2 apps on what is the payload, what is the return, etc. This is a contract in APIs.
+	
+	
+	ReST API : 
+		-> Representational State Transfer APIs.
+		-> Rest are guidelines to create APIs to ensure standardization and makes it easier ot integrate systems.
+		-> Rest tells us how apis should be structured.
+		-> What kind of APIs ?
+		-> Every request is self sufficent
+		-> Properties of CRUD APIs
+		1.) APIs should be defined around resources (entity).
+			a.) Product APi should deal with product. User API should deal with user, etc.
+			APIs should not have the type (get, put, post and delete) in the URI. The URI should only have the name of the entity.
+			b.) The type of the API should depend on the action we are performing with the API.
+			GET - Read data
+			POST - Write/Create data
+			PUT - Update Data
+			DELETE - Delete data
+			PATCH - update data.
+				-> PATCH vs PUT - use patch when we want to update only 1 attribute we use patch else if we want to fix complete or most of the row/s we use PUT.
+			c.) Nomenclature of the API should not include the type of API.
+			d.) Path Parameter : Parameters passed as part of URI. Example - GET <host> / User/2019. Here 2019 is a path parm.
+			e.) Request Param : More parameters are passed.
+				-> PATH param vs Request Param : Path Param used for ids that revolve around entities. Ids of any table. Request Param have no scope defined and anything can be passed.
+			-> Here if we want to create mulltiple apis of same type on the same entity we can have apis like :
+			GET / user/{user_id}
+			GET / user
+			GET / user / {user_id}/{customer_id}
+		2.) REST APIs are stateless : Every Request should be self sufficent. Every request should be an individual request and it should not assume or depend on anything. Example : ASume mulltiple servers of 1 service. USer does a login request and goes to 1 server and server generates token and keeps it on same server. Now in the next instant the request goes to the another server now we should not have to login one more time the token should be sent here also.
+		
+		3.) 1 API should not have 1:1 mapping with DB : The api can interact with more than 1 table in the service layer.
+		
+		4.) Data Interaction : request and response can be in multiple formats. Request can be JSON, XML, protbuff. Response can be in JSON, XML, protbuff. Any combinataions of both can be 
+		
+	-> CRUD APIs are most commonly used APIs in any application 
+
+
+-> LLD of product service : 
