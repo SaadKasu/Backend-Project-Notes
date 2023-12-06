@@ -53,4 +53,15 @@ APIs :
 	-> CRUD APIs are most commonly used APIs in any application 
 
 
+-> Protobuf : 
+	-> Protocol Buffers is a free open source cross platform data format used to serialize structured data.
+	-> It is light weight and faster than JSON and XML.
+	-> Binary transfer format : Data is transfered as binary 
+	-> Seperation of context and data is possible which is not possible in JSON and XML.
+	-> Need to write a proto file to define the schema of the protobuf.
+	-> You need to convert the proto file to language specific output. Need to protobuf compiler
+	-> Advantages :
+		-> Allows us to define a schema for the data that needs to be transfered.
+		-> Required, Repeated and optional keywords allow validations and are extensible
+
 -> LLD of product service : 
