@@ -63,5 +63,47 @@ APIs :
 	-> Advantages :
 		-> Allows us to define a schema for the data that needs to be transfered.
 		-> Required, Repeated and optional keywords allow validations and are extensible
-
+		
+		
+-> SOAP and REST APIs :
+	-> SOAP and ReST are 2 different approaches to API design. SOAP is highly structured and uses XML. ReST can have multiple formats.
+	-> Similarities between SOAP and REST :
+		-> Both can be used to build APIs used between diverse application. 
+		-> Both can be used to make, process and respond to data request from other applications
+		-> Both use HTTP to exchange information
+		-> Both use SSL/TLS for secure and encrypted communication
+		-> Both can be used to build secure, scalable and fault tolerant distributed systems.
+	-> Choosing between SOAP and REST :
+		-> Mordern systems using mordern architecture patterns like microservices prefer REST due to its flexibility and scalability. SOAP is prefered for legacy systems.
+		-> SOAP APIs have tighter WS Security which is preferable for private APIs while public APIs needing less security prefer Rest due to more flexibility
+		-> SOAP inherently is more suited to high data integrity requirements that comply with ACID properties. Rest may require additional software module to enforce ACID properties.
+		
+	How Does SOAP work ?
+		-> SOAP requires strict communication contract between systems.
+		-> SOAP has several standards that control every aspect of data exchange. like :
+			-> Web Service Security - Specifies security mesures like using unique identifiers called tokens. It adds additional header content to ensure only designated process in the specified server reads the message content.
+			-> Web Service Description Language - describes scope and function of SOAP web service 
+			-> WS Reliable Messaging - Standardizes error handling in SOAP messaging.
+		-> SOAP APIs wrap our HTTP request in SOAP envelopes. This is a Data structure that modifies the underlying HTTP request with SOAP requirements. 
+		-> Due to the envelope we can also send request to SOAP APIs using other transport protocols like TCP or ICMP.
+		-> The response of SOAP APIs is always a XML document.
+		
+	How does REST work ?
+		-> Rest imposes six conditions on how API should work :
+			-> Client-Server Architecture : Sender and Receiver are independent of each other regarding techology, language, etc.
+			-> Layered - Served can have several intermediateries that can work together to handle client request while being invisible to the client.
+			-> Uniform Interface - API returns data in standard format that is complete and fully useable
+			-> Stateless - Each API request is independent of previous or future requests.
+			-> Code on Demand - API response can include a code snippet if required
+			-> Cachable - All API responses are cacheable.
+		-> Requests are sent using HTTP verbs like - GET,POST,PUT,PATCH while response can be XML,JSON,etc.
+		
+	Difference between SOAP and REST :
+		-> Design Difference : SOAP API exposes funcation names that need to be used while REST exposes a USR with HTTP verb and parameters.
+		-> Flexibility - SOAP only allows XML format between applications and the server needs to be Stateful. While REST APIs are more flexible and allow application to transfer data in many formats and it is also stateless.
+		-> Performance - SOAP messages are more complex and larger which makes it slower to trasmit and process. REST is faster and more efficent due to small message sizes. Rest responses are also cacheable.
+		-> Scalability - SOAP requires servers to be stateful hence applications need more resources and are difficult/ expensive to scale. REST is stateless and hence cheaper/ easier to scale.
+		-> Security - Rest supports HTTPs but SOAP abs WS - Security on top of HTTPS, this makes soap better/ more secure but it adds to the processing.
+		Reliability - SOAP have error handling built into it using WS-RelaibleMessaging. REST needs you to retry in case of failure.
+	
 -> LLD of product service : 
