@@ -1,0 +1,68 @@
+Homework - Read abbout new annotations
+		 -> Try createing an API and use that URL
+		 -> Read about dispatcherServlet
+		 -> Create Category COntroller
+		 -> Explore FakeStoreApi
+
+I have never worked on NoSQL but trying to implement it for Product service how to create schema for NoSQL db ?  Is it same as SQL DB because I read that NoSQL does not have a fixed Schema ?
+
+MVC Pattern :
+	-> Model View controller is pattern used from creating backend web apps. View is not important from Backend perspective.
+	-> Client request always goes to controller . From Controller to Service Layer. Service Layer interacts with DB or some other service or some utility function.
+	-> Waiter and Chef in a Restaurant
+		-> Waiter - > Controller
+		-> Chef - Service
+		-> DB - Food ingredients 
+	-> DTOs used to transmit data between controller and service and service to other microserivce
+	-> POJO - Java class with attributes, getters and setters not methods
+	-> DAO - When the service layer interacts with the DB, data access objects are used . Tables are converted to objects in java and these are DAOs. DAOs don't have 
+	-> Model is mapped to a table in DB but POJOs can be only in code.
+	-> When using APIs like post, the request JSON is converted to a DTO class.
+	
+
+-> We have @RequestMapping for controllers which defines the prefix of the url. like /, /hi. 
+
+-> Spring dispatcherServlet : It is a mapping where key is the prefix defined in requestMapping and value is the 
+controller class. 
+	-> DispatcherServlet maps the request that comes to the correct controller based on the prefix of the URL
+Every API corresponds to a function in our code.
+
+APIs for Product Service :
+
+	GET - /Product, /Product/id
+	POST - Payload can contain data to insert
+	PUT - for update id can be provided as part of payload or in the paramter both are equally correct
+	DELETE - Never actually delete the data from DB. Set the delete flag to true
+	
+	NOTE : All queries you write the status condition should be there where delete = false.
+	
+APIs for User Service :
+	1.) POST / Users - Create user
+	2.) Delete / Users/ ID - delete user
+	3.) PUT /Users /ID - update user 
+	4.) GET /Users - get all users
+	5.) GET / Users/id - get specific user.
+	6.) GET / Users ? coulmnName1 = columnValue1 ? columnName2 = columnValue2 - Get users with given condition use request params.
+	
+	
+Product Service - WIll be a proxy service. Proxy service we redirect the request to another service, gets the data and return the data. Proxy service is used to perform some additional operations on the data returned from another service.
+
+For data used in Proxy service we will use an external API on FakeSotre API.
+
+Steps to start with code :
+	-> Define models.
+	-> use @mappedSuperClass to add columns of baseclass to all child classes.
+	-> Create controller and give annotation @REstController
+	-> Give @RequestMapping to the controller for dispatcherServlet to create mapping. The url should be the plural form of model name.
+	-> Create methods in the controller for the APIs needed.
+	-> Use @GetMapping for Get APIS and url should depend on the type of api and parameters.
+	-> Use @PostMapping for Post APIs. Post APIs can not be called from browser as we need request body. Use POSTMan for post request.
+	-> To take request from client, take parameter in the function. Create a DTO for that.
+	-> In the post method add annotation @RequestBody.
+	so method signature will be public string methodName(@RequestBody DTOName varaibleName)
+	-> use @Getter and @Setter at class level on DTO to create getters and setters without making the code lengthy. or use @Data at class level and it will create getters, setters, no arg constructor, all arugument constructor and toString method for the class.
+	-> In the request for POST we need to use DTO variableName as key.
+	-> If you want to consume path variables use the endpoint and provide path variable in endpoint adn also in method signature use 
+	@GetMapping("/{variableName1}/{variableName2}")
+	public string methodName(@PathVariable dataType varaibleName1, @PathVariable dataType varaibleName1)
+		-> value (variable name) should be same in url and method signature for spring to map it.

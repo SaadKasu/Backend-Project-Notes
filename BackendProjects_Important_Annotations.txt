@@ -1,0 +1,23 @@
+Important Annotations Used :
+	@RestController :  
+		-> It self is annotated with @Controller and @ResponseBody. 
+		-> Applied to a class to mark that the class is a Request Handler.
+		->	It is used to create RestFul Web services using Spring MVC.
+		-> This takes care of mapping request data to defined request handler method.
+		-> It also returns the data in JSON/XML format as response.
+		-> Dependencies of @RestController - Spring MVC, Jackson and JAXB libraries. Jackson to Support JSON response and JAXB to support XML Response.
+		-> Difference between @controller and @restcontroller. 
+			-> Both are used to define a class as web controller.
+			-> Controller is used when we want to return an HTTP file.
+			-> RestController is used to develop Rest APIs and return JSON or XML.
+			-> We can use @controller with @ResponseBody to return JSON or XML.
+			-> RestController is basically combination of Controller and ResponseBody
+	
+	@RequestMapping ?
+	@MappedSuperClass ?
+	@GetMapping ? 
+	@PostMapping ?
+	@RequestBody ?
+	@Getter and @Setter ? 
+	@Data ?
+	@PathVariable ?
