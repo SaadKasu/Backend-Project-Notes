@@ -66,3 +66,6 @@ Steps to start with code :
 	@GetMapping("/{variableName1}/{variableName2}")
 	public string methodName(@PathVariable dataType varaibleName1, @PathVariable dataType varaibleName1)
 		-> value (variable name) should be same in url and method signature for spring to map it.
+		
+		
+-> DispatcherServlet - DispatcherServlet is a front controller meaning any request that comes in our application is first going to come to the servlet. It is used to create web applications and RestServices in Spring MVC. Basicaly it receives all of the HTTP requests and directs those requests to correct controller classes.
