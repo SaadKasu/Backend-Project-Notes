@@ -33,3 +33,6 @@ Important Annotations Used :
 		-> In the @GetMapping or @PostMapping etc, we can use produces and tell the type of response this needs to produce. Is it XML or JSON.
 	-> @MappedSuperClass - Allows to extend a parent class without creating an entity for it in DB. 
 	-> ComponentScan - Use this to scan for controllers in different packages from Main File
+	-> @RequestParam - Path variable is use to pass path parameters in the URL. If we want to pass query parameters ?name=Saad&limit=5. We can do this using @RequestParam annotation
+		-> RequestParam also supports name change where if in the url we have the param called xyz but we want to use the param as name. We can do something like this methodName(@RequestParam (name = "xyz") String name). Here the query param passed as xyz will be used as name in the method.
+		-> Also supports required = false which allows to run the method if that param is not passed.
