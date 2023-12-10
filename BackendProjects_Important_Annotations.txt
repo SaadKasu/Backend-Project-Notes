@@ -26,7 +26,7 @@ Important Annotations Used :
 		-> Path vairable can be simple datatypes or Map too.
 	-> @Getter and @Setter at class level on DTO to create getters and setters without making the code lengthy.
 	-> @Data at class level and it will create getters, setters, no arg constructor, all arugument constructor and toString method for the class.
-	-> @RequestBody - Annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization.
+	-> @RequestBody - Annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization. NOT NEEDED SINCE SPRING 4.X AS @RestController IS ENOUGH
 		-> Spring automatically deserializes the JSON into a java type
 	-> @ResponseBody - Annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
 		-> Here an object is returned and the object is mapped to JSON where key is the variable name and value is the value in the object.
