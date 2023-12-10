@@ -32,3 +32,4 @@ Important Annotations Used :
 		-> Here an object is returned and the object is mapped to JSON where key is the variable name and value is the value in the object.
 		-> In the @GetMapping or @PostMapping etc, we can use produces and tell the type of response this needs to produce. Is it XML or JSON.
 	-> @MappedSuperClass - Allows to extend a parent class without creating an entity for it in DB. 
+	-> ComponentScan - Use this to scan for controllers in different packages from Main File

@@ -1,8 +1,5 @@
-Homework - Read abbout new annotations
-		 -> Try createing an API and use that URL
-		 -> Read about dispatcherServlet
+Homework -> Try createing an API and use that URL
 		 -> Create Category COntroller
-		 -> Explore FakeStoreApi
 
 I have never worked on NoSQL but trying to implement it for Product service how to create schema for NoSQL db ?  Is it same as SQL DB because I read that NoSQL does not have a fixed Schema ?
 
