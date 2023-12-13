@@ -1,0 +1,64 @@
+Homework : ->@Autowired, @Service @Bean
+			-> Why autowired is not preffered over constructor based injection
+			-> RestTemplate and HTTPClient Libraries
+			-> In RestTemplate *ForEntity methods.
+			-> ResponseEntity wrapprer object
+			-> What is a tomcat server.
+			-> What is multivalueMap
+			-> Try to see how to take input as headers.
+			-> Write code to create Product.
+			-> Can we implement adapter and SOLID principles while implementing the code.
+			-> Can we return a response to the client in case of exception ?
+			-> https://github.com/yjain19970/ProductService_WFS
+
+Controller -> Service Layer.
+
+Call external APIs in the service layer.
+
+-> Jackson library is used that converts object to JSON and vice versa. We will need to serialize and deserialize the data we need to convert to JSON and vice versa.
+
+-> Service layer is needed to execute logic and we need.
+
+-> Now to create an object we will just use @Service in the service class and create a constructor in the controller class and passs object of product service in the class.
+	-> Here using @Service tell spring to create oject of this special class.
+	
+-> Now to call to external API we first need to create DTOs for Request and Response.
+
+-> Next we need to do an API call over the network. There are many libraries that can be used. Some are RestTemplate, HTTPClient, etc.
+
+	-> We use RestTemplate here and need an object of RestTemplateBuilder like we created for service layer. using constructor.
+
+	-> Here we use object of RestTemplateBuilder.build() to create a Resst Tempalate and using rest template use *ForEntity methods.
+
+	-> This ForEntity methoidss return The object of DTO class wrapped in ResponseEntity Obejct.
+
+	-> To create object of RestTemplateBuilder we need to tell spring that it is a bean class. Classes that are not defined by us we need to tell spring that objects to these classes need to be created. Use @bean to tell Spring this.
+
+	-> Here RestTemplateBuilder is a Builder class on RestTempelate.
+
+
+-> Dispatecher Servlet returns the status code.
+	-> Success Response has range from 200-299 inclusive.
+		-> Depending on the request we need to use different success status code.
+			-> Like 204 is for when the request is successful(no error) but there is no data on the server.
+			
+-> TO return specific response from Controller.
+	-> Here we use ResponseEntity wrapper and return responseEntity object with the specific HTTP sstatus.
+
+
+-> To Send specific headers in the response.
+	-> In the same responseEntity object we have other constructors that take in header also also with body and status code.
+	-> Headers needs to be defined in multivalueMap.
+	
+-> To get a list of responses.
+	-> All the steps till calling the getForEntity method are same.
+	-> In the getForEntity method instead of just using the responsDTO classs we use responseDTO[].class. 
+	-> Rest of the parameters are the same.
+	-> This returns an array os ressponseDTOs that can be converted to List.
+	
+	
+-> How to abstract out exceptions to not show it to client ?
+	-> Exceptions are handled at controller level are controllers interacts with client and server.
+	-> Implement a try catch and if exception is encountered return responseEntity object and return a HTTPstatus as 500. In the body we can pass any message that we want.
+	
+-> Data is transmitted and received in form of bytes but code understands classes. SO to convert that from one form to another Serialization and Deserializtion. 
