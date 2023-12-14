@@ -20,19 +20,126 @@ Important Annotations Used :
 		-> Params can include patterns for match.
 		-> @GetMapping, @PostMapping @PutMapping @DeleteMapping and @PatchMapping are HTTP method specific variants of @RequestMapping.
 		-> Can use @RequestMapping instead of method specific mapping but it is advisable to use method specific mapping.
+		
 	-> @PathVariable - Used to handle variables in the request URI mapping.
 		-> Path variable can be set to not mandatory - 
 		methodName (@PathVariable(required = false) String id)
 		-> Path vairable can be simple datatypes or Map too.
+		
 	-> @Getter and @Setter at class level on DTO to create getters and setters without making the code lengthy.
+	
 	-> @Data at class level and it will create getters, setters, no arg constructor, all arugument constructor and toString method for the class.
+	
 	-> @RequestBody - Annotation maps the HttpRequest body to a transfer or domain object, enabling automatic deserialization. NOT NEEDED SINCE SPRING 4.X AS @RestController IS ENOUGH
 		-> Spring automatically deserializes the JSON into a java type
+		
 	-> @ResponseBody - Annotation tells a controller that the object returned is automatically serialized into JSON and passed back into the HttpResponse object.
 		-> Here an object is returned and the object is mapped to JSON where key is the variable name and value is the value in the object.
 		-> In the @GetMapping or @PostMapping etc, we can use produces and tell the type of response this needs to produce. Is it XML or JSON.
+		-> Not needed since Spring 4
+		
 	-> @MappedSuperClass - Allows to extend a parent class without creating an entity for it in DB. 
-	-> ComponentScan - Use this to scan for controllers in different packages from Main File
+	
+	-> @ComponentScan - Use this to scan for controllers in different packages from Main File
+	
 	-> @RequestParam - Path variable is use to pass path parameters in the URL. If we want to pass query parameters ?name=Saad&limit=5. We can do this using @RequestParam annotation
 		-> RequestParam also supports name change where if in the url we have the param called xyz but we want to use the param as name. We can do something like this methodName(@RequestParam (name = "xyz") String name). Here the query param passed as xyz will be used as name in the method.
 		-> Also supports required = false which allows to run the method if that param is not passed.
+		
+	->	What is a bean ?
+		-> In spring the objects that form the backbone of your application and are managed by the spring IoC container are called beans. A bean is an object instantiated, assembled and managed by the spring IoC container.
+		-> What is IoC ?
+			-> Inversion of COntrol is a process in which an object defines its dependencies without creating them. The object delegates the job of creating such dependencies to an IoC container.
+			
+			For Example :
+				public class Company {
+					private Address address;
+
+					public Company(Address address) {
+						this.address = address;
+					}
+
+					// getter, setter and other properties
+				}
+				
+				public class Address {
+					private String street;
+					private int number;
+
+					public Address(String street, int number) {
+					this.street = street;
+					this.number = number;
+					}
+
+				// getters and setters
+				}
+				
+				-> The traditional approach to create an object of class company is :
+					Address address = new Address("High Street", 1000);
+					Company company = new Company(address);
+					
+				-> In some use cases we might have hundreds of classes and we might want to share a single instance of a class accross the application. Or in other cases we might need to create seperate objects for seperate use cases.
+				
+				-> This is where inversion of control comes in.  Instead of creating its dependencies, an object can retreive its dependencies from an IoC container. All we need to do is provide the container with appropriate config metadata.
+				
+			-> To create a bean configuration we need to decorate the class which we want to create object of using bean with @Component. 
+			
+				-> So company class will be decorated with @Component.
+				
+			-> Next we create a config class and that class will be annotated with @Configuration and @ComponentScan. The config class will create a bean of the dependencies
+				-> In the class we will create methods that will return the dependencies used in company class so In this case we will use a method that returns an object of the address class.
+			
+			-> Next in our code we use an object of AnnotationConfigApplicationContext(Config.class) which will act as our IoC container.
+				-> Use the object of this class .getBean() method to create an object of the company class. 
+		
+	-> @Configuration -> This indicates the class has @bean defination methods.
+	
+	-> @Component -> Annotation that allows spring to detect our custom beans automatically.
+		->	What spring will do is :
+			-> Scan our app for classes annotated with @Component
+			-> Instantiate them and inject and specified dependencies into them
+			-> Inject them whereever needed.
+			
+	-> @Bean - Used at method level instead of class level so Spring stores result of the method as a bean
+	
+	-> @Service - It is a specilized version of @Component and is used to mark a class as a service provider
+	
+	-> ApplicationContext is where spring hold incstances of objects that it has identified to be manages and distributed automatically. ApplicationContext holds beans.
+	
+	
+	-> @Autowired - It allows spring to resolve and inject collaborating beans into our bean.
+		
+		-> By declaring all bean dependencies in a Spring configuration file, spring container can autowire relationships between collaborating beans. This is called bean autowiring.
+		
+		-> @Autowired can be used at property level to inject beans to a property in a class
+		-> @Autowired can be used at setter level When a method takes in object of a component class we can use @Autowired at that method.
+		-> @Autowired can also be used at constructor level. If we want to pass an object at constructor level we can use autowired.
+		
+		-> @Qualifier -> Now lets say you have 2 classes that implement the same interface and you want to autowire an object of that interface. How will spring know if you just use @Autowired ?
+			Example :
+				@Component("fooFormatter")
+				public class FooFormatter implements Formatter {
+					public String format() {
+						return "foo";
+					}
+				}
+				
+				@Component("barFormatter")
+				public class BarFormatter implements Formatter {
+					public String format() {
+						return "foo";
+					}
+				}
+				
+				public class FooService {
+					@Autowired
+					private Formatter formatter;
+				}
+				
+				Doing this will give NoUniqueBeanDefinitionException. To resolve this we use @Qualifier in the FooService class Like so and give the component name:
+				
+				public class FooService {
+					@Autowired
+					@Qualifier("fooFormatter")
+					private Formatter formatter;
+				}	

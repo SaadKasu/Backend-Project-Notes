@@ -1,10 +1,10 @@
-Homework : ->@Autowired, @Service @Bean
-			-> Why autowired is not preffered over constructor based injection
+Homework : ->@Autowired, @Service @Bean - DONE
+			-> Why autowired is not preffered over constructor based injection - DONE
 			-> RestTemplate and HTTPClient Libraries
 			-> In RestTemplate *ForEntity methods.
 			-> ResponseEntity wrapprer object
-			-> What is a tomcat server.
-			-> What is multivalueMap
+			-> What is a tomcat server - DONE
+			-> What is multivalueMap - DONE
 			-> Try to see how to take input as headers.
 			-> Write code to create Product.
 			-> Can we implement adapter and SOLID principles while implementing the code.
@@ -62,3 +62,29 @@ Call external APIs in the service layer.
 	-> Implement a try catch and if exception is encountered return responseEntity object and return a HTTPstatus as 500. In the body we can pass any message that we want.
 	
 -> Data is transmitted and received in form of bytes but code understands classes. SO to convert that from one form to another Serialization and Deserializtion. 
+
+
+-> Autowired supports inject on property, setter method and on constructor :	
+
+	-> If setter method and property injection are used together setter method is used by spring. It is bad practive to use several inject methods in same class.
+	
+	-> Why constructor based inject is preffered ?
+		-> All required dependencies are available at initialization time :
+			-> If a constructor expects all requeired dependencies as parameters we can be 100% sure that class will never be instantiated without dependencies injected.
+			-> This is useful to avoid null pointer exception.
+		-> Allows us to see if our code is dependent on too many classes :
+			-> If constructor requires too many paramneter then it might be time to refactor the code.
+		-> Immutability :
+			-> Constructor is the only way to create an object and once bean is created we cannot alter its dependencies. This is not the case with setter injection
+			
+			
+-> What is a multivalueMap ?
+	-> It allows to store key value pairs but 1 key can have zero or more values. it's not a 1 - 1 mapping. 
+	-> In this we can have null as key and value too, which is not possible in normal maps.
+	-> A multivalueMap decorates another map allowing it to have more than 1 value.
+	-> Adding a value in the map  will add the value to a collection at that key and getting a value will return a collection holding all values put at that key.
+	-> MultivalueMap is not syncronized and iss not thread safe.
+	
+-> What is Apache Tomcat ? 
+	-> It is a web server and servlet container for Java code. It is a production ready tool.
+	
