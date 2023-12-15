@@ -1,9 +1,9 @@
-Home work : What is difference between Response ENtity and HTTP Entity ?
+Home work : What is difference between Response ENtity and HTTP Entity ? - done
 			Try update/create but with only some fields.
-			What is difference between postForEntity and postForObject
+			What is difference between postForEntity and postForObject - done
 			Implement models instead of DTOs when calling controller to service and return model from service too.
 			Implement all other APIs from FakeStore
-			What are SDKs
+			What are SDKs - done
 
 -> Use PATCH APIs to update 1 product. Use PUT for more than 1 products.
 
@@ -19,4 +19,25 @@ Home work : What is difference between Response ENtity and HTTP Entity ?
 
 -> Controller layer only deals with DTOs,  Service layer only deals with Models.
 
--> Conversion from Model to FakeStore DTOs and vice versa should be done in fakestore class not in service
+-> Conversion from Model to FakeStore DTOs and vice versa should be done in fakestore class not in service.
+
+-> HTTPEntity can be used to create both response and request entity.
+	-> ResponseEntity is inherited from HTTPEntity and is a more elaborate way to create ResponseObject.
+	
+-> PostForEntity returns the response as a RespsonseEntity Object wheras postForObject returns Object specified in the parameters of the method.
+
+What is a SDK ?
+	-> It stand for a software development kit or a devkit. 
+	-> The SDK is a set of software building tools for a specific platform including buidling block, debuggers and a framework or group of code libraries such as a set of sspecific routies to a specific OS.
+	-> AN SDK might include :
+		-> Compiler : Compiles the code 
+		-> Code Samples : Gives example of an app or web page
+		-> Libraries/Framework : Provide implementations to ffrequently used codes.
+		-> Testing tools : Provide insight and testing for the applications.
+		-> Documentations : Give devs instructions of how to implement certain featurs
+		-> Debuggers : Helps spot errors to push out code that works.
+		
+	Difference betweeen a library, SDK and Framework :
+		-> Library is a code our app calls.
+		-> Framework is an almost made application where we just have to provide a few details for our use case
+		-> SKD comprises of libraries, Frameworks along with documentation, tools, debuggers, etc.

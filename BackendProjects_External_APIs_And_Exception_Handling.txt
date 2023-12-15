@@ -6,10 +6,9 @@ Homework : ->@Autowired, @Service @Bean - DONE
 			-> What is a tomcat server - DONE
 			-> What is multivalueMap - DONE
 			-> Try to see how to take input as headers.
-			-> Write code to create Product.
+			-> Write code to create Product. - DONE
 			-> Can we implement adapter and SOLID principles while implementing the code.
-			-> Can we return a response to the client in case of exception ?
-			-> https://github.com/yjain19970/ProductService_WFS
+			-> Can we return a response to the client in case of exception ? DONE
 
 Controller -> Service Layer.
 
