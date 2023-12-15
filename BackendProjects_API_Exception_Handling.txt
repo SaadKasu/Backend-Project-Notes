@@ -1,9 +1,22 @@
 Home work : What is difference between Response ENtity and HTTP Entity ?
 			Try update/create but with only some fields.
 			What is difference between postForEntity and postForObject
+			Implement models instead of DTOs when calling controller to service and return model from service too.
+			Implement all other APIs from FakeStore
+			What are SDKs
 
 -> Use PATCH APIs to update 1 product. Use PUT for more than 1 products.
 
 -> While PATCH we can first fetch the product to see if Id is valid and then if it is valid update the product.
 
--> There is no method PATCHForEntity in RestTempalate class. We can either use PatchForObject or try to create own method for Patch request. When we do our own method make sure the dependecies are present correctly, if not then we need to add in pom.xml file.
+-> There is no method PATCHForEntity in RestTempalate class. We can either use PatchForObject or try to create own method for Patch request. When we do our own method make sure the dependecies are present correctly, if not then we need to add in pom.xml file. Our own method should not be in Service layer, It should be in the Utility package.
+
+-> While returning data to client we should return custom DTO. Never safe to return models in our system to the cleint. We should not expose all fields available to the client, which will happen when we return model.
+
+-> But when using internal calls from controller to service we use Models and return models too instead of DTO.
+
+-> To convert DTOs to Modle and vice versa we use a seperate mapper package and add class that handels conversion.
+
+-> Controller layer only deals with DTOs,  Service layer only deals with Models.
+
+-> Conversion from Model to FakeStore DTOs and vice versa should be done in fakestore class not in service
