@@ -1,0 +1,9 @@
+Home work : What is difference between Response ENtity and HTTP Entity ?
+			Try update/create but with only some fields.
+			What is difference between postForEntity and postForObject
+
+-> Use PATCH APIs to update 1 product. Use PUT for more than 1 products.
+
+-> While PATCH we can first fetch the product to see if Id is valid and then if it is valid update the product.
+
+-> There is no method PATCHForEntity in RestTempalate class. We can either use PatchForObject or try to create own method for Patch request. When we do our own method make sure the dependecies are present correctly, if not then we need to add in pom.xml file.
