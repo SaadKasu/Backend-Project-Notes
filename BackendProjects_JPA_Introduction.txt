@@ -1,0 +1,85 @@
+Homework :1.)  Install MySQL and Workbench
+		2.) @Id, @ManyToOne(Cascade = CascadeType.All)
+		3.) How to give own table name
+		4.) Implemnt JPA and methods.
+		5.) https://www.baeldung.com/java-jdbc
+		
+-> What is Spring Data JPA : 
+	-> JPA is the Java Persistence API.
+	-> JPA is a part of our application which helps you connect to the database.
+	-> Sping Data JPA is library created in sping to make life easy. It's parent is JPA. 
+	-> There can be many libraries that use JPA. Sping Data JPA is one such library.
+	
+-> Application has data in objects and database has tables. 
+
+-> The DB is language agnostic. And many apps in different languages can connect to same DB.
+
+-> JPA works like an adapter between DB and code.
+
+-> Using JPA :
+	-> We have the code to call JPA in service layer.
+	-> Steps done in JPA :
+		-> Open connection with DB.
+		-> Create Query
+		-> Execute Queries
+		-> Convert result to objects.
+	-> DB returns row/rows but JPA converts the rows into objects.
+	-> Not a good idea to connect to DB everytime we need to execute a query.
+	
+	
+-> ORM - Object Relational Mapping - Used to convert records to objects.
+	-> Objects : object in COde
+	-> Relation : Rows in DB
+	-> Mapping : Relation between the 2.
+	-> ORM is a framework and is not specific to Java.
+	
+	ORM takes care of :
+		-> Create queries
+		-> Executes Queries (including joins)
+		-> The conversion of data from rows ro objects and vice versa is done by the ORM.
+		-> Creates mapping between objects and records.
+		
+-> So ORM is generic framework for Mapping between application and DB for all OOPs languages. Hibernate is the library in Java to implement ORM.
+
+-> JDBC - Java Database Connection 
+	-> Used for efficent DB connection when using JPA
+	-> Provides functionality like :
+		-> ConnectTODB()
+		-> IncreseDBConnectionPool()
+	-> Can be used to connect to different types of DBs like MySQL or MongoDB. Just the connectors will change.
+
+-> Summay :
+	1.) JPA - This is an adapter to connect to DB. It include specification for ORM in Java
+	2.) ORM is a framework. It is an approach for mapping between objects and DBs
+	3.) Hibernate is what we use in Java to implement ORM. Hibernate is implementation of JPA specification
+	4.) JDBC - Connect to DB.
+	
+-> Application.Properties -> Used to define properties of the connection with the DB like username, password, url and type of ddl.
+	-> ddl - create, update. Use update for most cases.
+	-> url - database url
+	-> driver-class-name - This is the DB connector.
+	-> show-sql - whther to show DDL queries or not.
+	
+-> Intellij has an extention where we can view tables in DB without opening mySQL. It appears on the right as databse.
+
+-> Repository Layer :
+	-> Service can interact with databse using the repository layer as a middle man to filter out all logic of JDBC, ORM out of the Service Layer.
+	-> Service should not interact with DB directly. This is done to ensure SOLID principles.
+	
+-> DAO : Data Access Objects
+	-> These are objects of the model classes.
+	-> In base class :
+		@Id - Tells MySQL this column is Id.
+		@GeneratedValue(stratergy = GenerationType.AUTO) - Tells MySQL that the Id is auto generted.
+	-> In Product Entity :
+		-> @ManyToOne(Cascade = CascadeType.All)
+	-> By default table name is class name.
+	-> When we start the application.
+	
+-> In the Repo Layer :
+	-> Create interface for each model with name ModelNameInterface.
+	-> Use @Repository annotation on the interface which tells spring it is a special interface.
+	->Extend each interface with the JPARepository Interface.
+	-> The JPARepository expects 2 things as the model and data type of the id of the model.
+	
+-> Note : In product service app. We will have 2 services. 1 will implement FakeStoreAPI and other will work with DBs we have created. Think of a case where we get a request for a product, we first check for product in our DB but the product is not available in our DB so we then go to fakeStore. This is a real world implementation of 2 services in 1 application.
