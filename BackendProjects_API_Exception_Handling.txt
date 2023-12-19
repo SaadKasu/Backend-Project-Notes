@@ -1,5 +1,5 @@
 Home work : What is difference between Response ENtity and HTTP Entity ? - done
-			Try update/create but with only some fields.
+			Try update/create but with only some fields - done
 			What is difference between postForEntity and postForObject - done
 			Implement models instead of DTOs when calling controller to service and return model from service too.
 			Implement all other APIs from FakeStore
