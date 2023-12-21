@@ -83,3 +83,12 @@ Homework :1.)  Install MySQL and Workbench
 	-> The JPARepository expects 2 things as the model and data type of the id of the model.
 	
 -> Note : In product service app. We will have 2 services. 1 will implement FakeStoreAPI and other will work with DBs we have created. Think of a case where we get a request for a product, we first check for product in our DB but the product is not available in our DB so we then go to fakeStore. This is a real world implementation of 2 services in 1 application.
+
+
+-> JDBC is an API for connecting and executing queries on a Database..
+	-> It is used for connecting to a particular type of DB based on the drivers provided.
+	-> There are several types of JDBC drivers :
+		1.) Type 1 : Contains mapping to another data access API. JDBC-ODBS driver is an example.
+		2.) Type 2 : This uses client side APIs of the target DB. Also called nateive API driver.
+		3.) Type 3 : Uses middleware to convert JDBC calls to database specific calls. Known as network protocol driver.
+		4.) Type 4 : Connects directly to DB by converting JDBC calls to database specific calls. Known as database protocol drivers or thin drivers. Most common

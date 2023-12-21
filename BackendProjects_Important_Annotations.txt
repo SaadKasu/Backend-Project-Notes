@@ -143,3 +143,6 @@ Important Annotations Used :
 					@Qualifier("fooFormatter")
 					private Formatter formatter;
 				}	
+	
+	
+	@Cascade - In entity relationships sometimes we need to have relationships where 1 entity can not exist without the other we need to delete one entity if the other is deleted. This is acheived by using cascade. Cascade type ALL propogates all operations from Parent to Child
