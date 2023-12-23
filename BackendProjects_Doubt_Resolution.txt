@@ -1,0 +1,51 @@
+Any thing we can practice/ work on in the one week ? 
+
+Homework :
+	1.) Completely learn Git branching. Especially cherry-pick. https://learngitbranching.js.org/
+	2.) Read article on best practices for api design.https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design
+	3.) Read about JPA, Hibernate. Important.
+	4.) SpringData JPA
+	5.) How does spring work with NoSQL.
+	
+-> Git is a distributed VCS. 
+
+
+What is GIT cherry-picking ? 
+	-> Many people can work on a project and not push it to the main. 
+	-> If only 1 change has happend in the other branch then it is possible to pull from it.
+	-> But if more than 1 changes are present in other branch, Pull and merge will get all different commits on different branch and add it to our branch.
+	
+	-> If we want only 1 commit from the other branch, we use Git cherry-pick.
+	
+	To use Git cherry-pick :
+		-> First get the remote of the branch.
+			-> git add remote branch name
+			-> git fetch branch_name
+			-> git cherry-pick commit_hash
+			
+			
+What is IOC (Inversion of Control) ?
+	-> when framework is doing dependency injection on your behalf.
+	
+-> When doing constructor Injection Autowired is optional. # Try this.
+
+-> Feign Client and Rest Tempelate.
+
+-> DAO pattern said that don't put code of calling DB in service class. Use Repo class.
+
+-> ORM allow us to write SQL queries via class diagram. As there is a tight coupling between attributes and columns in table.
+
+-> Hibernate is one of the ORMs. Others are Mybatis, JOOQ, etc.
+
+-> Each ORM has it's own set of methods and now when we want to move to different ORM it will be difficult.
+
+-> SO here Java has implemented an interface called JPA. All ORMs use the JPA interface so that it is easy to change ORMs in the future and there are standard methods of JPA that are common to all ORMs.
+
+-> ORM does the real work JPA is just an interface that acts as an adapter.
+
+-> SpringData JPA by default uses hibernate.
+
+
+In the curriculum I can see only 2 more classes for JPA and DBs. Wil that be enough ?
+
+But I was told during my resume review that even though I had working experience (2+ years as Software Engineer), I still needed good projects to showcase my skills in Java as my techstack is completly different (Salesforce). Is this not true ?
