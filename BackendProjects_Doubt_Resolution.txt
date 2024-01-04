@@ -51,3 +51,5 @@ In the curriculum I can see only 2 more classes for JPA and DBs. Wil that be eno
 But I was told during my resume review that even though I had working experience (2+ years as Software Engineer), I still needed good projects to showcase my skills in Java as my techstack is completly different (Salesforce). Is this not true ?
 
 Did Assignmment for OnlineSales.ai
+
+How to handle multiple requests ? Greater than our app can support ? 
