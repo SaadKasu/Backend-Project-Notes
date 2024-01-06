@@ -1,0 +1,70 @@
+Homework : 
+			Do Inheritence hW from last class.
+			@MappedBy
+			-> Add test for Repo that will add objects for products, categories and save it in DB. 
+			-> USe @SpringBoooTest
+			-> In Repo layer for products and categories use save method.
+			-> fetchType
+			-> Read about different cascade types in Spring.
+
+Cardinalities :
+	2 types of relationships :
+		Has A - Assocaition has 2 types :
+			-> Composition - Strong association
+			-> Aggregation - Weak association
+		Is A - Inheritence - Seen in last class
+		
+	For Has A relationship	
+		Find out types of cardinalities :
+			-> 1:M, M:1, 1:1 and M:M
+	
+		-> For 1:1 : ID of 1 table on the other side
+		-> For 1 : M : Id of 1 side on M side.
+		-> For M : M  : Mapping table
+	
+	
+		-> Cardinalities in model layer is important because REpo layer is to connect ot DB. and to execute queries.
+		
+		-> In models while using @ManyToOne put ManyToOne on model that will be Many. 
+		
+		-> So for all cardinality relations in models add cardinalities on both side.
+		
+		-> Then after creating cardinality put @mappedBy on the one side in onetomany or on either side when it is ManyToMany
+		
+	-> When using Repo with cardinalities when 1 models is fetched, its related models are also fetched.
+		
+	
+Lazy and Eager Loading :
+
+	Eager Loading : Load all data from tables when the data is not required.
+		By default when we use Spring JPA. When there is a many to 1 or 1 to many or many to many. Istead of just 1 query on the object/model we want to get,  it will also get the realted produts.
+		-> Not efficient as we are getting data we are not asking for.
+		
+	Lazy Loading : Don't fetch anything we don't ask for.
+	use fetchType = Lazy at the variable name 
+		-> When we call the getter of the related model then the call to DB is made not before that.
+		
+		
+Cascading : 
+	Lets assume 3 tables :
+	students : 		id name email roll no.
+	Math_marks: 	roll no. name marks
+	science_marks:	roll no. name marks
+	
+	-> All students from 1 class have data in these 3 tables.
+		Case 1 :
+			-> Now if the student changes classes we should delete the data from all the tables.
+		Case 2 : 
+			-> If student changes the roll no. they should be reflected in the marks table too.
+			
+	-> These are cases for cascading. WHere change in one table affects other tables.
+	
+	-> Types of cascadings : 
+		-> On delete : Deleting one object affects other.
+		-> On update : 
+		
+	-> Cascading is done on foreign key constraint only that means used with cardinalities.
+	
+	-> Cascade is optional with cardinalities. If you don't give it, changes will not be reflected in the related tables.
+	
+	-> Also it is possible that you specify cascading on one side of relationship and not on the other side.
