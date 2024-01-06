@@ -1,0 +1,44 @@
+Homework :
+	Use @Inheritence and InheritenceType and try all 3 approaches.
+	@DiscriminatorColumn with name and type
+	Use @GeneratedValue = GenerationType= UUId
+
+What is UUID ?
+	-> Universal Unique Identifier.
+	-> Generally we use int and long but even long might not suffice.
+	Problems with Long id :
+		-> In a very large application there might be several Dbs and using auto increment on long might lead to duplicate ids in seperate Dbs.
+		-> Also, if the id is auto increment it is easier for hackers to try ids in loop for rest APIs and maybe also lead to DoS.
+		
+	Good thing wiht Long id :
+		-> Easy to implement
+		-> Size of key is small.
+		
+		
+	-> If we use string, it is slower than long. but our DB converts it to Hexadecimal and stores in DB. Application side is alsways a String.
+	
+Inheritence in DBs :
+	User {
+	id,
+	name, 
+	password
+}
+
+	Mentor extends User{
+		companyName
+	}
+	
+	Instructor extends User{
+		Rating
+	}
+	
+	
+How to store this in DB ?
+	-> 1 .) Either keep 3 seperate table and each table has all colums
+	   2.) Keep 1 user table that has all users and use id of that with mentor and instructor as a mapping.
+	   3.) Keep all columns in 1 table and fill accordingly.
+	   
+	   No single best options
+	
+	
+	
