@@ -39,6 +39,9 @@ How to store this in DB ?
 	   3.) Keep all columns in 1 table and fill accordingly.
 	   
 	   No single best options
+	   
+	   
+	   
 	
 	
 	
