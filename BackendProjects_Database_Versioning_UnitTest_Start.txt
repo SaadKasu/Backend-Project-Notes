@@ -48,7 +48,8 @@ Database Versoning :
 		-> If version files are correct your application will start else it will fail.
 		
 	In flyway :
-		The first migration file will contain the create table and subsiquent migration files will contain 
+		1.) The first migration file will contain the create table
+		2.) subsiquent migration files will contain updates alter files
 		
 		
 Unit Testing :
