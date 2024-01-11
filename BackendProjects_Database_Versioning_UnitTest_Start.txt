@@ -5,6 +5,7 @@ HomeWork :
 	Ask This - In the PRD document, for the User Service there is a requirement to implement login via social media profiles.  Are we going to do this in future classes or do we need to implement this on our own ?
 	
 Database Versoning : 
+	-> 
 	-> You are executing some steps during a development.
 	-> There are 4 steps, everything went fine till V3 but things went wrong from step 3 to step 4.
 	-> You will need to revert the tasks done from step 3 to step 4.
@@ -45,6 +46,9 @@ Database Versoning :
 		-> Start the application and run it. It should be fine.
 		-> Next add any attribute in you model. and for that add a new version_up and version_down file. 
 		-> If version files are correct your application will start else it will fail.
+		
+	In flyway :
+		The first migration file will contain the create table and subsiquent migration files will contain 
 		
 		
 Unit Testing :
