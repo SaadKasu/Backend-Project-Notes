@@ -1,0 +1,73 @@
+Homework :
+	-> How to add code coverage in Github pipelines ?
+	-> @DisplayName in test cases.
+
+Unit Testing :
+
+	-> Unit testing for each method :
+		-> Should cover all test cases which include happy test casses and bad test cases.
+			-> Bad testcases include :
+				-> Exception testcases : null pointer, 
+				-> Error test cases : user not found.
+				
+	-> We need to add test cases because we need to define the funcationlity of a use case/ method. And if tomorrow any test cases that need not fail fail, that means a core funcationlity that should not be affected has been changed. 
+	
+	-> Unit test cases are written for each and every function.
+	
+	-> Unit is something that can not be broken down further.
+	
+	-> When function does not depend on other method. It becomes easy to write test cases for these types of methods.
+	
+	-> When function depends on other function/ method. We use something called as mock.
+	
+		-> When writing test cases for 1 function that depends on other functions because we care about only 1 function we mock the funcationlity of the dependent funciton.
+		
+		
+	-> Unit test cases need to be written for public and private methods.
+		
+		
+	-> Code coverage should be atleast 80% but it can also depend on how critial the service is.
+	
+		-> Tier 0 Service - 90% or greater is expected.
+		-> Tier 1 Service - 80 % or greater. 
+		
+		
+Integration Testing :
+		
+		
+	-> In most companies the code is developed on personal machines and then first pushed to integration enviornment and then to production.
+	
+	-> Need for Integration test cases :
+		-> It will be able to test end to end flow for each method in the service without mock.
+		-> It is not written for all methods.
+		
+		
+Functional Testing :
+	-> Behavioral/business testing of your system.
+	-> Done in pre prod with some users.
+	
+	
+QA testing - Not functional testing.
+
+
+For testing :
+	-> Need 2 libraries :
+		-> JUNIT : for test methods
+		-> Mockito : for mocking.
+		
+	-> Nomeclature is className followed by Test.
+	-> Each testclass should follow the same folder structure as the main class inside the test folder. 
+		-> SO if i have a class in util folder, the test class hould be in test folder -> utility subfolder
+		
+	-> Each test follows : 
+		-> Arrange - > Setup
+			-> Create : create objects
+			-> Call : call the objects
+			-> Check : Verify
+			
+		-> Act : Call the behavior that you want
+		-> Asserts : Check expected and actual outputs.
+		
+	-> All methods can have more than 3 test cases that depends on how many scenarios we want to test. But 3 is generally minimum, 1 for happy, 1 for sad and 1 for exception.
+	
+	
