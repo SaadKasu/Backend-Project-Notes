@@ -1,0 +1,17 @@
+
+
+Mockito : 
+	1.) For testing you don't want to depend on a dependency. You need to test each method on its own.
+	2.) When using mockito in the test class. You create the response of all the dependencies you want to mock and then use mockito function. 
+	 -> when(dependency is called).thenReturn(mocked dependency).
+	-> Here the dependency in the method will be skipped and will be replaced by mocked dependency.
+	
+To test for functionality what is observed by client is tested by something called MVC test. 
+
+	-> use MockMVC class object.
+	-> user mockMVCObject.perform(get("Endpoint url of the method in the controller")).andExpect()
+	
+	
+Test Suite is used to define set of test that need to be run to gether.
+	-> Specific methods, classes or packages can be selected to be run.
+	-> @Suite annotation is used.
