@@ -1,4 +1,6 @@
-
+Homework :
+	-> Write test for user service
+	-> Write test for product service
 
 Mockito : 
 	1.) For testing you don't want to depend on a dependency. You need to test each method on its own.
@@ -15,3 +17,4 @@ To test for functionality what is observed by client is tested by something call
 Test Suite is used to define set of test that need to be run to gether.
 	-> Specific methods, classes or packages can be selected to be run.
 	-> @Suite annotation is used.
+	
