@@ -1,6 +1,11 @@
 Homework :
 	-> Write test for user service
 	-> Write test for product service
+	-> Read about mockito
+	
+-> Unit test case is mocking 
+-> Integration test case is no mocking
+
 
 Mockito : 
 	1.) For testing you don't want to depend on a dependency. You need to test each method on its own.
@@ -18,3 +23,23 @@ Test Suite is used to define set of test that need to be run to gether.
 	-> Specific methods, classes or packages can be selected to be run.
 	-> @Suite annotation is used.
 	
+	
+Doubles in Testing :
+	-> When mocking a class instead of using the actual class we use a mock of the class.
+	like in productController class we use productService as an object.
+	-> But while testing productController we have need to mock the productService class.
+	
+	
+	Types of Doubles :
+		-> Mocks :  Create a mock object of the existing dependent class.
+		-> Stub : Create a replica of the dependent class. 
+		-> Fakes : Create a replica of the dependent class. But in this case the this is closer to actual classes. Here you will mock the dependent services too. Rarely used.
+		
+Argument Captors :
+	-> JUNIT provides some methods.
+	-> Such methods like verify will check the service and see how many times the service is mocked and how many times it should have been mocked. And if they don't match then test case will fail.
+	
+	
+-> What i want to test is individual service is working fine but I don't care about other services. I care about the redis, dbs, kafka  and my own service.
+
+-> One approach is test all part I care about in real time without mock but mock external service calls. This is called SIT - System Isolation Tests. They lie in between unit and integration test cases.
