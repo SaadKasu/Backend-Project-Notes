@@ -1,0 +1,40 @@
+
+
+Authentication : Proof of Identity
+Authorization : Someone have permission to do somthing.
+
+Authentication is needed for Authorization to check if the user has access to the properties mentioned.
+
+
+Implementation : 
+Authentication and Authorization are implemented using OAuth 2.0.
+
+-> OAuth also takes care of login via socials.
+
+-> Use seperate Service for Authorization called AuthService.
+
+-> OAuth 2.0 is a library not an auth service.
+
+-> Client first calls auth service and when the service responds positively the client uses that authentication reponse to tell our service that it has been authenticated. The service then checks with the auth service to verify.
+
+
+-> Flow of Authentication :
+	1.) Client(browser) -> Auth Server
+	2.) Resource (customer) grants permission to AUth Server.
+	3.) The site that needs authorization checks with the Auth server.
+	
+	Lets say in case of Scaler :
+	-> I try to login via google on Scaler:
+	-> Scaler redirects me to the Auth Server 
+	-> Auth Server redirects me to google where I put in my details and grant permissions.
+	-> The Auth server then returns a token to me.
+	-> The token is sent by my browser to the scaler.
+	-> Then Scaler checks with Auth Server using the token which confirms my google login.
+	
+	
+Auth Server :
+	-> Needs to persist tokens corresponding to users.
+	
+	How is is basically implemented ?
+		-> The tokens genereated corresponding to each user is persisted in DB and for each request the call is made to DB. Even adding redis is expensive and can be down.
+	
