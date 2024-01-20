@@ -1,4 +1,7 @@
-
+User Service : 
+	Implement AUth as part of user service class
+	-> try to pass tokens as headers.
+	->https://github.com/yjain19970/userservice/tree/main
 
 Authentication : Proof of Identity
 Authorization : Someone have permission to do somthing.
@@ -36,5 +39,44 @@ Auth Server :
 	-> Needs to persist tokens corresponding to users.
 	
 	How is is basically implemented ?
-		-> The tokens genereated corresponding to each user is persisted in DB and for each request the call is made to DB. Even adding redis is expensive and can be down.
+		->  Naive Approach : The tokens genereated corresponding to each user is persisted in DB and for each request the call is made to DB. Even adding redis is expensive and can be down.
+		
+		-> Better Approach : Using JWT (JSON Web Token)
+			-> Token is any string that is encrypted.
+			-> JWT are standardized token format and it allows you to send data inside the token.
+			
+			Steps : 
+			-> client class Auth server requesting token.
+			-> Auth server genertes token and first stores in DB for audit purpose then sends it to client.
+			-> Once the token in JWT is sent to our client.
+			-> Cleint sends a call to resource server with JWT.
+			-> The resource server calls auth server with Token sent by client.
+			-> The auth server when called with the token will validate the token and confirm if the token is correct or not.
+			
+	JWT format :
+		-> Contains 3 parts :
+			1.) Header : contains info on which algorithm is used.
+			2.) Payload : All data auth server sets into it.
+			3.) Secret Key - Shared between other services and auth server.
+		Steps for JWT :
+		-> Once all these 3 parts are created as seperate Strings. 
+		-> Then the Secret key is encrypted. 
+		-> SO no tampering is possible. As if someone wants to change the payload they need the secret key which is only with other services.
+		-> Then the all 3 parts are encoded in base64 to compress the data.
+		-> finaaly all 3 parts are joined by . seperation.
+		
+	-> How auth server validates the JWT ?
+		-> 
+		
+-> Springboot starter security dependency is needed in application.
+
+-> If you enable security in your project no one is allowed to access any endpoints and are greeted with login page.
+
+-> Security package can be used.
+	-> Create a config class in the package that will tell us which endpoints should be open and which should not.
+	-> use SecurityFilterChain and httpSecurity objects.
+	
+-> Passwords  / Sensitive data should be encoded and stored in Database
+
+Use BCryptSecurity/ BCryptPasswordEncoder
 	
