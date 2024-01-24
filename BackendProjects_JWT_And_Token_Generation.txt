@@ -1,0 +1,42 @@
+
+
+
+Authentication With JWT :
+
+	Creating Token Using JWT : 
+		-> Use JJWT Library.
+		-> User Jwts.builder().content("Payload comes here").compact();
+			-> This gives a token without signature.
+		-> To Set signature we need secret key. 
+			-> For secret key we need algorithm.
+			-> Algorithm can be obtained from from JWTS.
+			-> Once we have the algorithm, use it to get the security key which can be used in Jwts.builder().content("Payload comes here").signWith(key,algo).compact();
+		-> Instead of using a String we can use a HashMap for payload and supply the key-value pair we need.
+			-> For this we can use somthing like a hashmap and convert to string.
+			
+	Validate Token Generated.
+		-> Key used to generate token and key used to parse the token should be the same. 
+		-> We need to store the secret key while signing it because bulding new key everytime will give different keys. 
+		-> jjwt algo.key.build gives new key each time
+		-> 
+		-> https://www.baeldung.com/java-jwt-token-decode#:~:text=Decoding%20a%20JWT&text=First%2C%20let's%20split%20up%20the,regular%20expression%20passed%20to%20String.
+		
+	-> Generating secret key each time is not a good approach. We need to generate a key once using some tool and then Store it in Config Store or app properties and retreive it from there. This will not regenerate key for each restart of the app.
+	
+	
+Cookies :
+	-> Cookkie is data stored at cleint side 
+	-> Tokens are stored as cookies for different websites.
+	-> SO if token is present directly validate API is called. else first we will be redirected to login to create a new token.
+	-> After creating the token the service returns the token in the response header.
+	-> then it is reponsibitity if client to store the token in the cookie.
+	
+-> CORS : Cross Origin Resource Sharing
+	-> Security Feature in browser.
+	-> Your app should enable calls on website if you want to share resources across your website.
+	
+	
+-> Authorization After Authentication: 
+		-> Authentication in different services should be a seperate package and the class should be called from the controller not from the service.
+		
+-> Our servies are responsible to return no data, correct data and correct header info based on the conditions. Redirecting to different services is not responsibility of the service.
