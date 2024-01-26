@@ -1,0 +1,117 @@
+Go is a faster the intepreted languages and also faster than compiled languages(only faster in compile times).
+
+Interpreted languages are where we share the source code instead of sharing the exe file which
+
+Java uses GC which is a lot of overhead. Go is Garbage collected too but it is a small overhead cmpared to Java.
+
+rune - char in java
+byte - byte in java
+
+
+Instead of using var varName dataType = value
+We can use varName := value. Here Go will intrepret the datatype on it's own.
+
+
+To declare multiple values on same line 
+varName1 , varName2 := value1,value2
+
+const is used when we don't want to allow for value change.
+const don't support reassignment and can't be assigned using short assignment change.
+
+printf() - used for printing and %v is used to replace the value of the variable after the comma/
+
+fmt.printf("Print Value Of this %v",varibaleName) - This prints - Print Value Of this varibaleName
+
+Sprintf() returns the string value as a variable instead of printing to console
+
+
+if - syntax - if number < 19 {
+				fmt.Print("Correct")
+			  }
+			  
+Like Java but no circle brackets around condition (can have circular brackets but not needed). Curly brackets are needed.
+
+if can have two parts in the condition itself
+
+if intializationBlock; conditionEvaluation{
+}
+
+Here intializationBlock can be a varibale assignment or a function call. Initialization block helps reduce the scope of the variable to the if block and keeps code consice
+
+
+Functions in Go
+
+func functionName(varName varDatatype, varName varDatatype, ....) returnDatatype{
+
+}
+
+example :
+	
+func addNumbers(x int, y int) int{
+	return x + y
+}
+
+variable dataTypes are needed in the function defination
+
+If 2 or more parameters are of the same type in the function we can directly use
+
+func addNumbers(x,y int) int{
+	return x + y
+}
+
+
+In go we can return more than 1 values :
+	func funcName()(returnDatatype1, returnDatatype2 ...)
+	in the return statement we write returnValue1,returnValue2,...
+	
+Go does not allow unused variables. and sometimes you may need to ignore values returned from a function.
+
+so in the function call instead of uusing :
+	func funcName(x,y int) (int,int,int,int);
+x,y,z,a := funcName(10,11)
+
+we can use underscore
+x,_,_,_ := funcName(10,11)
+
+Those values will be ignored.
+
+
+You can also have a naked return statement like so :
+
+func addNumbers(x,y int) int{
+	return
+} // This will fail
+
+but to use this you have to define the variable name next to the return type 
+
+func addNumbers(x,y int) z int{
+	return
+} // This will return the value of z
+
+Gaurd clause is where there is an early return statement.
+
+For loops same as java :
+
+for initialize ; condition ; Operation{
+}
+
+In Go as in Java all 3 parts of the for statement are optional
+
+There is no while loop in Go, only a for loop without initialize and operation.
+syntax :
+	for condition{
+	
+	}
+for {
+	// This is valid for infite for loop
+}
+
+Struct is like a key value pair. Struct contains other types.
+
+Syntax for struct :
+
+type structName struct {
+	x int
+	y String
+	...Hi
+}
